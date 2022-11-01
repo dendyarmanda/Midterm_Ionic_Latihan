@@ -29,7 +29,7 @@ export class DatabaseService {
 
     Object.assign(dbOptions, {
       logging: ['error', 'query', 'schema'],
-      synchronize: false,
+      synchronize: true,
       entities: [
 
       ]
