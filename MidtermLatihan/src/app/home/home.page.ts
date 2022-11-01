@@ -8,18 +8,24 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  message :string = 'Hello My Broo';
   constructor(private modalCtrl: ModalController) {}
    async openModal(){
       const modal = await this.modalCtrl.create({
-        component:MyModalComponent
+        component:MyModalComponent,
+        swipeToClose: false,
+        showBackdrop: true,
+        initialBreakpoint : 0.75,
+        breakpoints: [0, 0.25, 0.5, 0.75]
       });
       modal.present();
 
-      const {data,role} =  await modal.onWillDismiss();
+      await modal.onWillDismiss().then((result)=>{
+        this.message = `Hello,  ${result.data}`;
+        console.log('Result ', result);
 
-      console.log("Data ", data);
-      console.log("Role ", role);
+      });
+
 
    }
 }
