@@ -1,3 +1,4 @@
+import { Contact } from './../../entities/contac';
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Connection, ConnectionOptions, createConnection, getConnection } from 'typeorm';
@@ -31,7 +32,7 @@ export class DatabaseService {
       logging: ['error', 'query', 'schema'],
       synchronize: true,
       entities: [
-
+        Contact
       ]
     });
 
