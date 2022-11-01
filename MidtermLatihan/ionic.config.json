@@ -1,0 +1,7 @@
+{
+  "name": "MidtermLatihan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
