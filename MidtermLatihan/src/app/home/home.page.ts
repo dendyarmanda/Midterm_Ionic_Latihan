@@ -19,9 +19,13 @@ export class HomePage {
         breakpoints: [0, 0.25, 0.5, 0.75]
       });
       modal.present();
-
-      await modal.onWillDismiss().then((result)=>{
-        this.message = `Hello,  ${result.data}`;
+      modal.onWillDismiss()
+      await modal.onDidDismiss().then((result)=>{
+        if(result){
+          this.message = `Hello,  ${result.data}`;
+        }else{
+          this.message = 'Hello Broo';
+        }
         console.log('Result ', result);
 
       });
