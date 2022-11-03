@@ -1,6 +1,7 @@
 import { MyModalComponent } from './../components/my-modal/my-modal.component';
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class HomePage {
   message :string = 'Hello My Broo';
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, private route:Router) {}
    async openModal(){
       const modal = await this.modalCtrl.create({
         component:MyModalComponent,
@@ -31,5 +32,8 @@ export class HomePage {
       });
 
 
+   }
+   openMaps(){
+    this.route.navigate(['maps']);
    }
 }
